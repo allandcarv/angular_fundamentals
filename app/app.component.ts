@@ -5,8 +5,12 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      <h1 [innerHTML]="title"></h1>
-      <input type="text" [value]="name">
+      <button (click)="handleClick()">Change Name</button>
+      <input
+        type="text"
+        [value]="name"
+        (input)="handleInput($event)"
+        (blur)="handleBlur($event)">
       <div>{{ name }}</div>
       <div>
         {{ numberOne + numberTwo }}
@@ -31,5 +35,17 @@ export class AppComponent {
 
     this.numberOne = 1;
     this.numberTwo = 2;
+  }
+
+  handleClick() {
+    this.name = 'John Doe';
+  }
+
+  handleInput(event: any) {
+    this.name = event.target.value;
+  }
+
+  handleBlur(event: any) {
+    this.name = event.target.value;
   }
 }
