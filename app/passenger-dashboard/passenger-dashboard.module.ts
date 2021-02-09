@@ -1,0 +1,9 @@
+import { fromPromise } from "rxjs/observable/fromPromise";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@NgModule({
+  declarations: [],
+  imports: [CommonModule]
+})
+export class PassengerDashboardModule {}
