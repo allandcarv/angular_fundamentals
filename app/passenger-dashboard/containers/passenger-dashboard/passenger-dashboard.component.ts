@@ -12,7 +12,8 @@ import { Passenger } from '../../models/passenger.interface';
         *ngFor="let passenger of passengers"
         [detail]="passenger"
         (edit)="handleEdit($event)"
-        (remove)="handleRemove($event)"></passenger-detail>
+        (remove)="handleRemove($event)">
+      </passenger-detail>
     </div>
   `
 })
@@ -66,7 +67,7 @@ export class PassengerDashboardComponent implements OnInit {
    this.passengers = this.passengers.filter((passenger: Passenger) => passenger.id !== event.id);
   }
 
-  handleEdit(event) {
+  handleEdit(event: Passenger) {
    this.passengers = this.passengers.map((passenger: Passenger) => {
      if (passenger.id === event.id) {
       passenger = { ...event };
@@ -74,7 +75,5 @@ export class PassengerDashboardComponent implements OnInit {
 
      return passenger
    });
-
-   console.log(this.passengers);
   }
 }
