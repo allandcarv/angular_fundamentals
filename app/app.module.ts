@@ -21,7 +21,7 @@ const routes: Routes = [
     FormsModule,
     // Custom Modules
     PassengerDashboardModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   declarations: [
     AppComponent,
